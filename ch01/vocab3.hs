@@ -32,7 +32,7 @@ wordsCount :: Vocabulary -> (Int, Int)
 wordsCount vocab = (sum $ map snd vocab, length vocab)
 
 wordsByFrequency :: Vocabulary -> Vocabulary
-wordsByFrequency = sortOn (Down . snd)
+wordsByFrequency = sortOn $ Down . snd
 
 allWordsReport :: Vocabulary -> Text
 allWordsReport vocab =
