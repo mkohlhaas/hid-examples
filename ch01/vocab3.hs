@@ -36,26 +36,13 @@ wordsByFrequency = sortOn (Down . snd)
 
 allWordsReport :: Vocabulary -> Text
 allWordsReport vocab =
-  fmt $ nameF "All words" $ unlinesF (allWords vocab)
+  fmt $ nameF "All words" $ unlinesF $ allWords vocab
 
 wordsCountReport :: Vocabulary -> Text
 wordsCountReport vocab =
   fmt $ "Total number of words: " +| total |+ "\nNumber of unique words: " +| unique |+ "\n"
   where
     (total, unique) = wordsCount vocab
-
-wordsCountReport' :: Vocabulary -> Text
-wordsCountReport' vocab = T.unlines [part1, part2]
-  where
-    (total, unique) = wordsCount vocab
-    part1 =
-      T.append
-        (T.pack "Total number of words: ")
-        (T.pack $ show total)
-    part2 =
-      T.append
-        (T.pack "Number of unique words: ")
-        (T.pack $ show unique)
 
 frequentWordsReport :: Vocabulary -> Int -> Text
 frequentWordsReport vocab num =
