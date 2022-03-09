@@ -42,6 +42,5 @@ main = do
   case args of
     ["-o", fname] -> orientFromFile fname
     ["-r", fname, dir] -> rotateFromFile (read dir) fname
-    _ ->
-      putStrLn $ "Usage: locator -o filename\n"
-              ++ "       locator -r filename direction"
+    _ -> putStrLn $ "Usage: locator -o filename\n"
+                 ++ "       locator -r filename direction"
